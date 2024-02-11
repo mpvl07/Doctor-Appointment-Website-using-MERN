@@ -1,0 +1,183 @@
+.navbar {
+    font-family: 'Montserrat', 'sans-serif';
+    background-color: white;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 40px;
+}
+
+/* .nav-links li:last-child {
+  margin-right:0;
+} */
+.nav-links a {
+    color: black;
+    /* Change link color to black */
+    text-decoration: none;
+    /* Remove underline */
+    transition: color 0.3s;
+    /* Smooth color transition on hover */
+}
+
+.nav-links a:hover {
+    color: #007bff;
+    /* Change color on hover */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #000000;
+}
+
+.user-name {
+    color: #000;
+    margin: 0;
+    font-size: 24px;
+}
+
+.edit-profile-btn,
+.medical-report-btn {
+    background-color: #ffffff;
+    border-color: #007bff;
+    color: #007bff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.user-details-card {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-details,
+.right-details {
+    width: 48%;
+    /* Adjust the width as needed */
+}
+
+.left-details p,
+.right-details p {
+    margin: 10px 0;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .details-section {
+        flex-direction: column;
+    }
+
+    .left-details,
+    .right-details {
+        width: 100%;
+    }
+}
+
+.user-details-card,
+.appointments-card {
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000000;
+    /* Add slight black border */
+}
+
+.details-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-details,
+.right-details {
+    width: 48%;
+}
+
+.left-details p,
+.right-details p {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.table-container {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.table-container table {
+    width: 100%;
+}
+
+.table-container th,
+.table-container td {
+    text-align: left;
+    padding: 8px;
+}
+
+.cancel-btn,
+.view-report-btn {
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn {
+    background-color: #ff5757;
+    /* Red color for cancel button */
+    color: #ffffff;
+}
+
+.view-report-btn {
+    background-color: #4caf50;
+    /* Green color for view report button */
+    color: #ffffff;
+}
+
+.cancel-btn:hover {
+    background-color: #d13c3c;
+    /* Darker red on hover for cancel button */
+}
+
+.view-report-btn:hover {
+    background-color: #449d47;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .details-section {
+        flex-direction: column;
+    }
+
+    .left-details,
+    .right-details {
+        width: 100%;
+    }
+}
