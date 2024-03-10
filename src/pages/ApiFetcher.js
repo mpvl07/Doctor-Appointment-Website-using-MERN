@@ -1,51 +1,37 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const ApiFetcher = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+function App() {
+  const [userData, setUserData] = useState(null);
+  const apiUrl = "http://mohan123.pythonanywhere.com/";
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://mohan123.pythonanywhere.com");
-
-        if (!response.ok) {
-          console.log("error")
-          throw new Error("Network response was not ok");
-        }
-        
-        const result = await response.json();
-        console.log(result);
-        setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchData();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(apiUrl);
+      setUserData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      console.error("Error details:", error.response || error.message);
+    }
+  };
 
-  if (error) {
-    return <p>Error: {error.message}</p>;
-  }
+  return (
+    <div className="App">
+      <h1>User Data</h1>
+      {userData ? (
+        <div>
+          <p>Registration Number: {userData.reg_no}</p>
+          <p>Name: {userData.name}</p>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
 
-  // return (
-  //   // <div>
-  //   //   {data.map((item) => (
-  //   //     <div key={item.reg_no}>
-  //   //       <p>Registration Number: {item.reg_no}</p>
-  //   //       <p>Name: {item.name}</p>
-  //   //     </div>
-  //   //   ))}
-  //   // </div>
-  // );
-};
-
-export default ApiFetcher;
+export default App;

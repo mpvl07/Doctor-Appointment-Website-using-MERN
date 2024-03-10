@@ -1,5 +1,6 @@
 import React from "react";
 import { Link ,useNavigate} from "react-router-dom";
+import "../Register.css";
 import { Button, Form, Input } from "antd";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -11,14 +12,15 @@ function Register() {
   const onFinish = async (values) => {
     //console.log("Recieved values",values);
     try {
-      dispatch(showLoading())
+      //dispatch(showLoading())
       const response = await axios.post("/api/user/register", values);
-      dispatch(hideLoading())
+      //dispatch(hideLoading())
       if (response.data.success) {
         toast.success(response.data.message);
         toast("Redirecting to login page");
         navigate("/login");
       } else {
+        console.log(response.data.message);
         toast.error(response.data.message);
         // Check if there's an error message in the response data
         // const errorMessage = response.data.error
@@ -29,32 +31,55 @@ function Register() {
 
     } catch (error) {
       dispatch(hideLoading());
-      //console.log(error.response);
+      console.log(error);
       toast.error("something went wrong");
     }
   };
 
   return (
-    <div className="authentication">
-      <div className="authentication-from">
-        <h1 className="card-title">Register here</h1>
-        <Form layout="vertical" onFinish={onFinish}>
-          <Form.Item label="Name" name="name">
-            <Input placeholder="Name" />
+    <div>
+      <div id="heading">
+        <h1>Meet Doctor</h1>
+      </div>
+      <div className="login-container">
+        <h2>Register</h2>
+        <Form
+          name="register"
+          onFinish={onFinish}
+          initialValues={{ remember: true }}>
+          <Form.Item
+            label="Name"
+            name="name"
+            rules={[{ required: true, message: "Please input your name!" }]}>
+            <Input />
           </Form.Item>
-          <Form.Item label="Email" name="email">
-            <Input placeholder="Email" />
+          <Form.Item
+            label="Username"
+            name="username"
+            rules={[
+              { required: true, message: "Please input your username!" },
+            ]}>
+            <Input />
           </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input placeholder="Password" type="password" />
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={[
+              { required: true, message: "Please input your password!" },
+            ]}>
+            <Input.Password />
           </Form.Item>
-          <Button className="primary-button" htmlType="submit">
-            Register
-          </Button>
-          <Link to="/login" className="anchor m-2">
-            Click here to Login
-          </Link>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Submit
+            </Button>
+          </Form.Item>
         </Form>
+        {/* <div className="register-link">
+          <p>
+            Not registered yet? <Link to="/register">Click here</Link>
+          </p>
+        </div> */}
       </div>
     </div>
   );

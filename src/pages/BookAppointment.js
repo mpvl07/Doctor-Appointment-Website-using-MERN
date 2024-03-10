@@ -1,28 +1,36 @@
 import React from "react";
-
+import { Link} from "react-router-dom";
 function BookAppointment() {
   return (
     <div>
       <nav class="navbar">
         <div class="logo">
-          <img src="logo.png" alt="Logo" height="40" />
+          <img src="logo.png" alt="Logo" />
         </div>
         <ul class="nav-links">
           <li>
-            <a href="#">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Find a Doctor</a>
+            <Link to="/finddoctor">Find a Doctor</Link>
           </li>
           <li>
             <a href="#">About</a>
           </li>
           <li>
-            <a href="#">Login</a>
+            <a href="/login">Login</a>
+          </li>
+          <li>
+            <a href="/pharmacies">Pharmacy</a>
           </li>
         </ul>
-        <div class="book-appointment">Book Appointment</div>
+        <div class="book-appointment">
+          <Link to="/finddoctor" className="main-book">
+            Book An Appointment
+          </Link>
+        </div>
       </nav>
+
       <div class="appointment-container">
         <h2>Doctor Appointment Registration</h2>
         <form action="#" method="post">

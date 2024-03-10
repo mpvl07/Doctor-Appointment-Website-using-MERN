@@ -14,10 +14,15 @@ import ApiFetcher from "./pages/ApiFetcher";
 import DoctorProfile from "./pages/DoctorProfile";
 import BookAppointment from "./pages/BookAppointment";
 import UserDashboard from "./components/userDashboard";
+import Pharmacies from "./pages/Pharmacies";
+import DoctorInterface from "./pages/DoctorInterface";
+import DoctorApplyForm from "./pages/DoctorApplyForm";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Toaster position="top-center" reverseOrder={false} />
         {/* <div className="spinner-parent">
           <div class="spinner-border" role="status">
 
@@ -28,10 +33,13 @@ function App() {
           <Route path="/api" element={<ApiFetcher />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/ff" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/finddoctor" element={<FindDoctor />} />
           <Route path="/doctorprofile" element={<DoctorProfile />} />
-          <Route path="/" element={<UserDashboard />} />
+          <Route path="/pharmacies" element={<Pharmacies />} />
+          <Route path="/userprofile" element={<UserDashboard />} />
+          <Route path="/applydoctor" element={<DoctorInterface />} />
+          <Route path="/applyform" element={<DoctorApplyForm />} />
         </Routes>
       </BrowserRouter>
     </div>

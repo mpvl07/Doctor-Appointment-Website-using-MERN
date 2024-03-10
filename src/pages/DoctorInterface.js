@@ -3,7 +3,7 @@ import axios from "axios";
 import { Navbar, Nav } from "react-bootstrap";
 import "../index.css";
 import { Link } from "react-router-dom";
-function Home() {
+function DoctorInterface() {
   const getData = async () => {
     try {
       const response = await axios.post(
@@ -35,7 +35,7 @@ function Home() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/finddoctor">Find a Doctor</Link>
+            <Link to="/applyform">Apply Doctor</Link>
           </li>
           <li>
             <a href="#">About</a>
@@ -47,7 +47,7 @@ function Home() {
             <a href="/pharmacies">Pharmacy</a>
           </li>
           <li>
-            <a href="/userprofile">Profile</a>
+            <Link to="/doctorprofile">profile</Link>
           </li>
         </ul>
       </nav>
@@ -56,26 +56,23 @@ function Home() {
         <div className="main-content">
           <div className="main-text">
             <h1>
-              <b>Book Your Doctor Appointment Online</b>
+              <b>Check your Appointments</b>
             </h1>
             <p>
-              <i>
-                Book your appointment TODAY and start being healthy from
-                TOMORROW.
-              </i>
+              <i></i>
             </p>
             <div className="main-btns">
-              <button className="main-book">Book An Appointment</button>
+              <button className="main-book">Appointments</button>
               <button className="main-contact">Contact Us</button>
             </div>
           </div>
-          <div className="doctor-image-container">
+          <div className="doctor-image-container" >
             <img src="image.png" alt="Doctor" className="doctor-imagee" />
           </div>
         </div>
       </div>
 
-      <div class="how-it-works">
+      {/* <div class="how-it-works">
         <h1>How It Works</h1>
         <div class="topics">
           <div class="topic">
@@ -96,7 +93,7 @@ function Home() {
             <p>Receive the healthcare service you need with ease.</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <div class="search-container">
         <input type="text" placeholder="Search..." />
@@ -105,7 +102,7 @@ function Home() {
         </button>
       </div> */}
 
-      <footer class="footer">
+      {/* <footer class="footer">
         <div class="footer-links">
           <a href="#">Home</a>
           <a href="#">Contact Us</a>
@@ -114,10 +111,9 @@ function Home() {
         <div class="copyright">
           &copy; 2023 YourWebsiteName. All Rights Reserved.
         </div>
-      </footer>
-      <a href="/applydoctor">Profile</a>
+      </footer> */}
     </div>
   );
 }
 
-export default Home;
+export default DoctorInterface;
